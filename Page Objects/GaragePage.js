@@ -3,44 +3,44 @@ import BasePage from "./BasePage";
 const url = "/";
 
 export default class extends BasePage {
-    constructor(){
-        super(url);
+    constructor(page){
+        super(page);
     }
 get AddCarBtn(){
-    return cy.contains('button', 'Add car')
+    return this.page.getByRole('button', {name:'Add car'})
 }
 
 get AddCarModal(){
-    return cy.get('.modal-header')
+    return this.page.locator('.modal-header')
 }
 
 
 get BrandField(){
-    return cy.get('#addCarBrand')
+    return this.page.locator('#addCarBrand')
 }
 
 get ModelField(){
-    return cy.get('#addCarModel')
+    return this.page.locator('#addCarModel')
 }
 
 get MileageField(){
-    return cy.get('#addCarMileage')
+    return this.page.locator('#addCarMileage')
 }
 
 get AddBtn(){
-    return cy.contains('button', /^Add$/)
+    return this.page.getByRole('button', {name: /^Add$/})
 }
 
 get CancelBtn(){
-    return cy.contains('button', 'Cancel')
+    return this.page.getByRole('button', {name: 'Cancel'})
 }
 
 get CarName(){
-    return cy.get('.car_name')
+    return this.page.locator('.car_name')
 }
 
 get CloseBtn(){
-    return cy.get('.close')
+    return this.page.locator('.close')
 }
 
 

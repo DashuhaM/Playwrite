@@ -27,10 +27,10 @@ export default class BasePage {
 
   async navigate() {
     await this.page.goto('/', {
-      httpCredentials: {
-        username: 'guest',
-        password: 'welcome2qauto',
-      }
+    //   httpCredentials: {
+    //     username: 'guest',
+    //     password: 'welcome2qauto',
+    //   }
     })
   }
   async containUrlCheck(expectedUrl) {

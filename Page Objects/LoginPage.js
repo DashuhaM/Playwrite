@@ -1,26 +1,26 @@
 import BasePage from "./BasePage";
 
-const url = "/";
+// const url = "/";
 
 export default class extends BasePage{
-    constructor(){
-        super(url);
+    constructor(page){
+        super(page);
     }
 get signInField(){
-    return cy.get('#signinEmail')
+    return this.page.locator('#signinEmail')
 }
 
 get signInPassword(){
-    return cy.get('#signinPassword')
+    return this.page.locator('#signinPassword')
 }
 
 get loginBtn(){
-    return cy.contains('button', 'Login')
+    return this.page.getByRole('button', { name: 'Login' })
 }
 
-login(email, password) {
-    this.signInField.type(email);
-    this.signInPassword.type(password, { sensitive: true });
-    this.loginBtn.click();
+async login(email, password) {
+   await this.signInField.fill(email);
+   await this.signInPassword.fill(password, { sensitive: true });
+   await this.loginBtn.click();
 }
 }

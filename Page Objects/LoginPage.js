@@ -20,7 +20,7 @@ get loginBtn(){
 
 async login(email, password) {
    await this.signInField.fill(email);
-   await this.signInPassword.fill(password, { sensitive: true });
+   await this.signInPassword.fill(password);
    await this.loginBtn.click();
 }
 }
